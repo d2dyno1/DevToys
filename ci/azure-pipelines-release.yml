@@ -81,7 +81,7 @@ jobs:
   - task: codesigning@2
     displayName: 'Sign package'
     inputs:
-      secureFileId: '$(signingCert.secureFilePath)'
+      secureFileId: '$(certificateSecureFilePath)'
       signCertPassword: '$(signingCert.password)'
       files: '$(appxPackageDir)**/DevToys.Startup_*.msixbundle'
       timeServer: 'http://timestamp.digicert.com'
