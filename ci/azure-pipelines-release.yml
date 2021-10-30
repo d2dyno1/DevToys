@@ -78,6 +78,8 @@ jobs:
                          /p:PackageCertificateThumbprint=""'
       maximumCpuCount: true
 
+  # Sign the msixbundle file.
+  # Requires https://marketplace.visualstudio.com/items?itemName=stefankert.codesigning
   - task: codesigning@2
     displayName: 'Sign package'
     inputs:
