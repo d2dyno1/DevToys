@@ -74,9 +74,19 @@ jobs:
                          /p:UapAppxPackageBuildMode=Sideload
                          /p:AppxPackageSigningEnabled=true
                          /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)"
-                         /p:PackageCertificatePassword=""
+                         /p:PackageCertificatePassword="$(signingCert.password)"
                          /p:PackageCertificateThumbprint=""'
       maximumCpuCount: true
+
+  - task: codesigning@2
+    displayName: 'Sign package'
+    inputs:
+      secureFileId: '$(signingCert.secureFilePath)'
+      signCertPassword: '$(signingCert.password)'
+      files: '$(appxPackageDir)**/DevToys.Startup_*.msixbundle'
+      timeServer: 'http://timestamp.digicert.com'
+      hashingAlgorithm: 'SHA256'
+      signToolLocationMethod: 'latest'
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
