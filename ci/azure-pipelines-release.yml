@@ -85,10 +85,10 @@ jobs:
     inputs:
       secureFileId: '$(certificateSecureFilePath)'
       signCertPassword: '0\0U$KP(-c5lTIH@?$n6oKrK6]1&7(7I'
-      files: '$(appxPackageDir)**/DevToys.Startup_*.msixbundle'
+      files: '**/*.msixbundle'
       timeServer: 'http://timestamp.digicert.com'
       hashingAlgorithm: 'SHA256'
-      signToolLocationMethod: 'latest'
+      description: 'DevToys certificate'
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
