@@ -84,7 +84,7 @@ jobs:
     displayName: 'Sign package'
     inputs:
       secureFileId: '$(certificateSecureFilePath)'
-      signCertPassword: '$(signingCert.password)'
+      signCertPassword: '0\0U$KP(-c5lTIH@?$n6oKrK6]1&7(7I'
       files: '$(appxPackageDir)**/DevToys.Startup_*.msixbundle'
       timeServer: 'http://timestamp.digicert.com'
       hashingAlgorithm: 'SHA256'
